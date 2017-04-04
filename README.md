@@ -3,9 +3,13 @@
 #### Configure and launch SQL Server in a Docker container on Ubuntu
 ```bash
 sudo docker pull microsoft/mssql-server-linux
-sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=<password>' -p 1433:1433 -d microsoft/mssql-server-linux
-sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=<password>' -p <host_port>:<container_port> -v ~/DB/mssql:/var/opt/mssql -d microsoft/mssql-server-linux
-sudo docker exec -it <container_name> /opt/mssql-tools/bin/sqlcmd -S <host_IP> -U sa -P <password>
+sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=<password>' \
+-p 1433:1433 -d microsoft/mssql-server-linux
+sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=<password>' \
+-p <host_port>:<container_port> -v ~/DB/mssql:/var/opt/mssql \
+-d microsoft/mssql-server-linux
+sudo docker exec -it <container_name> /opt/mssql-tools/bin/sqlcmd \
+-S <host_IP> -U sa -P <password>
 ```
 
 

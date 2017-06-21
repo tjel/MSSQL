@@ -1,0 +1,6 @@
+USE testdb;
+GO
+
+SELECT * FROM INFORMATION_SCHEMA.TABLES;
+SELECT * FROM sys.schemas;
+GO

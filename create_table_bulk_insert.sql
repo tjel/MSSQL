@@ -1,7 +1,8 @@
 USE testdb;
 GO
  
-IF OBJECT_ID('dbo.testdb') IS NOT NULL DROP TABLE [dbo].[testdb];
+IF OBJECT_ID('dbo.testdb') IS NOT NULL 
+    DROP TABLE [dbo].[testdb];
  
 CREATE TABLE [dbo].[testdb](
     [TYP] [VARCHAR](9) NOT NULL,
@@ -15,16 +16,21 @@ CREATE TABLE [dbo].[testdb](
 GO
  
 BULK INSERT [dbo].[testdb]
-    FROM 'D:\path\to\data\file.txt'
+    FROM 
+        'D:\path\to\data\file.txt'
     WITH
         (
         FIELDTERMINATOR = '|'
- -- although here the row terminator is declared as \n, the BULK INSERT query 
- -- looks for \r\n (CRLF) in the above given data file     
+/* 
+Although here the row terminator is declared as \n, the BULK INSERT query 
+looks for \r\n (CRLF) in the above given data file.
+*/
         ,ROWTERMINATOR = '\n'
- -- ACP means ANSI code page
+/*
+         ACP means ANSI code page
+*/         
         ,CODEPAGE =  'ACP'
---	     ,FIRSTROW = 2
+--      ,FIRSTROW = 2
 --      ,LASTROW = 484
         );
 GO

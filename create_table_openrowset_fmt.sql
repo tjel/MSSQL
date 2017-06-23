@@ -1,7 +1,8 @@
 USE testdb;
 GO
  
-IF OBJECT_ID('dbo.testdb') IS NOT NULL DROP TABLE [dbo].[testdb];
+IF OBJECT_ID('dbo.testdb') IS NOT NULL 
+    DROP TABLE [dbo].[testdb];
  
 CREATE TABLE [dbo].[testdb](
     [TYP] [VARCHAR](9) NOT NULL,
@@ -15,8 +16,11 @@ CREATE TABLE [dbo].[testdb](
 GO
 
 INSERT INTO [dbo].[testdb]
-SELECT * FROM OPENROWSET (
+SELECT * 
+FROM OPENROWSET 
+    (
     BULK 'D:\path\to\data\file.txt',   
     FORMATFILE = 'D:\path\to\format\file.txt'
-) AS T1;
+    ) 
+    AS T1;
 GO

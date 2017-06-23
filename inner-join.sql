@@ -1,7 +1,11 @@
 USE AdventureWorks;
 GO
 
-SELECT TOP 5 PPE.BusinessEntityID, PPE.LastName, PPE.FirstName, PEA.EmailAddress
+SELECT TOP 5 
+    PPE.BusinessEntityID, 
+    PPE.LastName, 
+    PPE.FirstName, 
+    PEA.EmailAddress
 FROM 
     Person.Person PPE
     INNER JOIN 

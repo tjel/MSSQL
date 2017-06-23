@@ -25,6 +25,6 @@ BULK INSERT [dbo].[testdb]
  -- ACP means ANSI code page
         ,CODEPAGE =  'ACP'
 --	     ,FIRSTROW = 2
---      LASTROW = 484
+--      ,LASTROW = 484
         );
 GO

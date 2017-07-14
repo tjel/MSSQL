@@ -23,3 +23,10 @@ VALUES
     value1,
     GETDATE()
     );
+
+/* adding constraint after creating table */
+ALTER TABLE [dbo].[Test3] 
+ADD CONSTRAINT 
+    DF_TABLE_DATE DEFAULT GETDATE() 
+FOR
+    DATE_COLUMN;
